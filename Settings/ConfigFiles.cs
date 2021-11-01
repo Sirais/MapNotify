@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace MapNotify
 {
-    public partial class MapNotify : BaseSettingsPlugin<MapNotifySettings>
+    public partial class MapNotify
     {
 
         public void ResetConfigs()
@@ -29,7 +29,9 @@ namespace MapNotify
         }
         public Dictionary<string, StyledText> LoadConfig(string path)
         {
+
             if (!File.Exists(path))
+            {
                 if (path.Contains("ModWarnings"))
                     CreateModConfig(path);
                 else if (path.Contains("SextantWarnings"))
@@ -38,14 +40,15 @@ namespace MapNotify
                     CreateWatchstonesConfig(path);
                 else if (path.Contains("HeistWarnings"))
                     CreateHeistConfig(path);
+            }
 
             return GenDictionary(path).ToDictionary(line => line[0], line =>
             {
-                bool bricking = false;
+                var bricking = false;
                 if (line.Length > 3)
-                    bool.TryParse(line[3] ?? null, out bricking);
-                var preloadAlerConfigLine = new StyledText { Text = line[1], Color = HexToSDXVector4(line[2]), Bricking = bricking };
-                return preloadAlerConfigLine;
+                    bool.TryParse(line[3], out bricking);
+                var preloadAlertConfigLine = new StyledText { Text = line[1], Color = HexToSDXVector4(line[2]), Bricking = bricking };
+                return preloadAlertConfigLine;
             });
         }
 

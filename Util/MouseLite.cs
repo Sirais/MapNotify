@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace MapNotify
 {
-    class MouseLite
+    internal class MouseLite
     {
         [DllImport("user32.dll")]
         public static extern bool GetCursorPos(out Point lpPoint);

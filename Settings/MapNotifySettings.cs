@@ -1,7 +1,6 @@
-﻿using ExileCore.Shared.Interfaces;
+﻿using System.Numerics;
+using ExileCore.Shared.Interfaces;
 using ExileCore.Shared.Nodes;
-using Vector2 = System.Numerics.Vector2;
-using Vector4 = System.Numerics.Vector4;
 
 namespace MapNotify
 {
@@ -61,14 +60,11 @@ namespace MapNotify
 
             Bricked = new Vector4(1f, 0f, 0f, 1f);
         }
-        public bool TargettingHaewarkHamlet = false;
-        public bool TargettingTirnsEnd = false;
-        public bool TargettingLexProxima= false;
-        public bool TargettingLexEjoris = false;
-        public bool TargettingNewVastir = false;
-        public bool TargettingGlennachCairns = false;
-        public bool TargettingValdosRest = false;
-        public bool TargettingLiraArthain = false;
+
+        public bool TargetingHaewarkHamlet = false;
+        public bool TargetingValdosRest = false;
+        public bool TargetingGlennachCairns = false;
+        public bool TargetingLiraArthain = false;
 
         public float AtlasX { get; set; }
         public float AtlasY { get; set; }
