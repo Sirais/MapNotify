@@ -69,6 +69,11 @@ namespace MapNotify
         public void RenderItem(NormalInventoryItem item, Entity entity, bool isZanaMissionInventory = false,
             int missionIndex = 0)
         {
+            if (GameController?.IngameState?.IngameUi == null)
+            {
+                return;
+            }
+
             if (entity.Address == 0 || !entity.IsValid)
             {
                 return;
